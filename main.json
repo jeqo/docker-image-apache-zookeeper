@@ -1,0 +1,44 @@
+{
+  "variables": {
+    "zk_home": "/opt/apache-zookeeper",
+    "zk_version": "3.4.9",
+    "zk_data": "/var/zookeeper"
+  },
+  "builders": [
+    {
+      "type": "docker",
+      "image": "openjdk:8-jre",
+      "commit": true
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "install.sh",
+
+      "environment_vars": [
+        "ZK_PKG=zookeeper-{{user `zk_version`}}",
+        "ZK_URL=http://apache.uib.no/zookeeper/zookeeper-{{user `zk_version`}}/zookeeper-{{user `zk_version`}}.tar.gz",
+        "ZK_HOME={{user `zk_home`}}",
+        "ZK_DATA={{user `zk_data`}}"
+      ]
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "docker-tag",
+        "repository": "jeqo/apache-zookeeper",
+        "tag": "{{user `zk_version`}}"
+      },
+      {
+        "type": "docker-dockerfile",
+        "maintainer": "Jorge Quilcate <quilcate.jorge@gmail.com>",
+        "workdir": "{{user `zk_home`}}",
+        "expose": ["2181", "2888", "3888"],
+        "volume": ["{{user `zk_data`}}"],
+        "cmd": ["bin/zkServer.sh", "start-foreground"]
+      }
+    ]
+  ]
+}

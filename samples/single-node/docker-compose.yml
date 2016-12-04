@@ -1,0 +1,9 @@
+version: '2'
+services:
+  zk:
+    image: jeqo/apache-zookeeper:3.4.9
+    ports:
+      - 2181:2181
+    volumes:
+      - ./zoo.cfg:/opt/apache-zookeeper/conf/zoo.cfg
+      - ./zoo/logs:/var/zookeeper
