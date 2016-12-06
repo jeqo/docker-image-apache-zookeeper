@@ -38,7 +38,8 @@
         "expose": ["2181", "2888", "3888"],
         "volume": ["{{user `zk_data`}}"],
         "cmd": ["bin/zkServer.sh", "start-foreground"]
-      }
+      },
+      "docker-push"
     ]
   ]
 }
