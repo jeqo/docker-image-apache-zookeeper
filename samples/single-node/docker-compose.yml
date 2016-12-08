@@ -1,7 +1,7 @@
 version: '2'
 services:
   zk:
-    image: jeqo/apache-zookeeper:3.4.9
+    image: jeqo/apache-zookeeper
     ports:
       - 2181:2181
     volumes:

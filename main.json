@@ -44,6 +44,12 @@
         "volume": ["{{user `zk_data`}}"],
         "cmd": ["bin/zkServer.sh", "start-foreground"]
       },
+      {
+        "type": "docker-tag",
+        "repository": "jeqo/apache-zookeeper",
+        "tag": "latest",
+        "force": true
+      },
       "docker-push"
     ]
   ]
