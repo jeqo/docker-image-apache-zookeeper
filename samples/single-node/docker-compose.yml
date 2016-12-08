@@ -5,5 +5,4 @@ services:
     ports:
       - 2181:2181
     volumes:
-      - ./zoo.cfg:/opt/apache-zookeeper/conf/zoo.cfg
       - ./zoo/logs:/var/zookeeper

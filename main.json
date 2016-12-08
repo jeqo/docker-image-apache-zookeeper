@@ -1,5 +1,6 @@
 {
   "variables": {
+    "zk_base_url": "http://apache.uib.no",
     "zk_home": "/opt/apache-zookeeper",
     "zk_version": "3.4.9",
     "zk_data": "/var/zookeeper"
@@ -15,13 +16,17 @@
     {
       "type": "shell",
       "script": "install.sh",
-
       "environment_vars": [
         "ZK_PKG=zookeeper-{{user `zk_version`}}",
-        "ZK_URL=http://apache.uib.no/zookeeper/zookeeper-{{user `zk_version`}}/zookeeper-{{user `zk_version`}}.tar.gz",
+        "ZK_URL={{user `zk_base_url`}}/zookeeper/zookeeper-{{user `zk_version`}}/zookeeper-{{user `zk_version`}}.tar.gz",
         "ZK_HOME={{user `zk_home`}}",
         "ZK_DATA={{user `zk_data`}}"
       ]
+    },
+    {
+      "type": "file",
+      "source": "zoo.cfg",
+      "destination": "{{user `zk_home`}}/conf/zoo.cfg"
     }
   ],
   "post-processors": [

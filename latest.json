@@ -1,0 +1,22 @@
+{
+  "variables": {
+    "zk_version": "3.4.9"
+  },
+  "builders": [
+    {
+      "type": "docker",
+      "image": "jeqo/apache-zookeeper:{{user `zk_version`}}",
+      "commit": true
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "docker-tag",
+        "repository": "jeqo/apache-zookeeper",
+        "tag": "latest"
+      },
+      "docker-push"
+    ]
+  ]
+}

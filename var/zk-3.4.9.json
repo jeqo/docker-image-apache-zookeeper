@@ -1,5 +1,3 @@
 {
-  "zk_home": "/opt/apache-zookeeper",
-  "zk_version": "3.4.9",
-  "zk_data": "/var/zookeeper"
+  "zk_version": "3.4.9"
 }
