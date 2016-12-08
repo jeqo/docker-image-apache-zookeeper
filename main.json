@@ -37,18 +37,18 @@
         "tag": "{{user `zk_version`}}"
       },
       {
+        "type": "docker-tag",
+        "repository": "jeqo/apache-zookeeper",
+        "tag": "latest",
+        "force": true
+      },
+      {
         "type": "docker-dockerfile",
         "maintainer": "Jorge Quilcate <quilcate.jorge@gmail.com>",
         "workdir": "{{user `zk_home`}}",
         "expose": ["2181", "2888", "3888"],
         "volume": ["{{user `zk_data`}}"],
         "cmd": ["bin/zkServer.sh", "start-foreground"]
-      },
-      {
-        "type": "docker-tag",
-        "repository": "jeqo/apache-zookeeper",
-        "tag": "latest",
-        "force": true
       },
       "docker-push"
     ]
