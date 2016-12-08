@@ -39,8 +39,7 @@
       {
         "type": "docker-tag",
         "repository": "jeqo/apache-zookeeper",
-        "tag": "latest",
-        "force": true
+        "tag": "latest"
       },
       {
         "type": "docker-dockerfile",
