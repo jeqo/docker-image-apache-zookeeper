@@ -1,6 +1,6 @@
 - hosts: localhost
   vars:
-    zk_version: 3.4.9
+    zk_version: 3.5.2-alpha
   tasks:
 
     - set_fact:
