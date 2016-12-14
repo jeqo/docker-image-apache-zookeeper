@@ -10,10 +10,11 @@
       docker_image:
         name: "{{ image }}"
         path: .
-        force: yes
-        nocache: yes
         buildargs:
           zk_version: "{{ zk_version }}"
+        force: yes
+        nocache: yes
+        push: yes
       register: result
 
     - debug:
