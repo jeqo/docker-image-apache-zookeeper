@@ -1,0 +1,20 @@
+- hosts: localhost
+  vars:
+    zk_version: 3.4.8
+  tasks:
+
+    - set_fact:
+        image: jeqo/apache-zookeeper:{{ zk_version }}
+
+    - name: building {{ image }}
+      docker_image:
+        name: "{{ image }}"
+        path: .
+        force: yes
+        nocache: yes
+        buildargs:
+          zk_version: "{{ zk_version }}"
+      register: result
+
+    - debug:
+        var: result

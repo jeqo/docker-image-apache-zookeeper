@@ -15,17 +15,17 @@ services:
       - zookeeper2
       - zookeeper3
   zookeeper1:
-    image: jeqo/apache-zookeeper:3.4.9
+    image: jeqo/apache-zookeeper:3.4.8
     volumes:
       - ./zoo1.cfg:/opt/apache-zookeeper/conf/zoo.cfg
       - ./zk/logs:/var/zookeeper
   zookeeper2:
-    image: jeqo/apache-zookeeper:3.4.9
+    image: jeqo/apache-zookeeper:3.4.8
     volumes:
       - ./zoo2.cfg:/opt/apache-zookeeper/conf/zoo.cfg
       - ./zk/logs:/var/zookeeper
   zookeeper3:
-    image: jeqo/apache-zookeeper:3.4.9
+    image: jeqo/apache-zookeeper:3.4.8
     volumes:
       - ./zoo3.cfg:/opt/apache-zookeeper/conf/zoo.cfg
       - ./zk/logs:/var/zookeeper
