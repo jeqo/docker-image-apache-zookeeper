@@ -23,6 +23,20 @@ to start a single node with Apache Zookeeper.
 
 * /var/zookeeper: Data directory
 
-## How to use it
+## How to build image
+
+Run: 
+
+```bash
+ansible-playbook main.yml
+```
+
+If you want to build an older version (e.g. 3.4.8):
+
+```bash
+ansible-playbook main.yml -e @vars/zk-3.4.8.yml
+```
+
+## How to use this image
 
 Go to `samples` directory

@@ -2,7 +2,6 @@
   vars:
     zk_version: 3.5.2-alpha
   tasks:
-
     - set_fact:
         image: jeqo/apache-zookeeper:{{ zk_version }}
 
