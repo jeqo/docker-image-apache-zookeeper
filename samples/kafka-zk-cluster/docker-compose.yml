@@ -4,9 +4,9 @@ services:
   client:
     image: jeqo/apache-kafka:0.10.1.0
     links:
-      - server:kafka
+      - kafka
     command: sleep infinity
-  server:
+  kafka:
     image: jeqo/apache-kafka:0.10.1.0_2.11
     environment:
       ZOOKEEPER_CONNECT: zookeeper1:2818,zookeeper2:2181,zookeeper3:2181
