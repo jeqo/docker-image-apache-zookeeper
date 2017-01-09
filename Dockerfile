@@ -25,3 +25,6 @@ EXPOSE 2181 2888 3888
 VOLUME $ZK_DATA
 
 CMD ["bin/zkServer.sh", "start-foreground"]
+
+HEALTHCHECK --interval=2s --timeout=3s \
+  CMD bin/zkServer.sh status || exit 1
