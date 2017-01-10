@@ -14,7 +14,6 @@
         force: yes
         nocache: yes
         push: yes
-        docker_host: 'tcp://192.168.42.67:2376'
       register: result
 
     - debug:
